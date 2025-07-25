@@ -14,6 +14,16 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    
+                    <!-- Nueva sección de Reservaciones -->
+                    <flux:navlist.item 
+                        icon="calendar" 
+                        :href="route('reservaciones.index')" 
+                        :current="request()->routeIs('reservaciones.*')" 
+                        wire:navigate
+                    >
+                        {{ __('Reservaciones') }}
+                    </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

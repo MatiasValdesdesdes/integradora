@@ -19,4 +19,13 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
+Route::resource('reservaciones', \App\Http\Controllers\ReservacionController::class)
+    ->middleware('auth');
+
+// Si necesitas rutas adicionales para la API
+Route::get('/api/reservaciones', function() {
+    return \App\Models\Reservacion::all();
+})->middleware('auth:sanctum');
+
+
 require __DIR__.'/auth.php';

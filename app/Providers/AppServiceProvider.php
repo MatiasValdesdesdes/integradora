@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
         
         // Validación personalizada para horarios de reservación
         $this->registerCustomValidations();
+        
+        // Configuración de alias para vistas de reservaciones (Opción 3)
+        View::addNamespace('reservaciones', resource_path('views/reservacion'));
     }
     
     /**
